@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-lg-12" style="text-align:center;">
+        <h2>My Profile</h2>
+    </div>
+</div>
+
+<br>
+
+<div class="container" style="width: 900px;">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card">
+                <img style="width: 200px; height: 200px; margin: auto;" src="../../assets/defaultprofilepicture.jpg" />
+            </div>
+        </div>
+
+        <div class="col-lg-9" style="width: 800px; text-align: center;">
+            <form [formGroup]="updateUserDetails" (ngSubmit)="updateProfile(updateUserDetails)">
+                <div class="form-group row">
+                    <label for="editUsername" class="col-sm-4 col-form-label">Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" formControlName="editUsername" [(ngModel)]="username" id="editUsername">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="editEmail" class="col-sm-4 col-form-label">Email</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" formControlName="editEmail" [(ngModel)]="email" id="editEmail">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="editContact" class="col-sm-4 col-form-label">Contact Number</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" formControlName="editContact" [(ngModel)]="contact" id="editContact">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="editHouseAddress" class="col-sm-4 col-form-label">House Address</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" formControlName="editHouseAddress" [(ngModel)]="houseAddress" id="editHouseAddress">
+                    </div>
+                </div>
+
+                <p><button class="btn btn-primary" (click)="updateProfile()" type="submit">Update</button></p>
+                <p><button class="btn btn-primary" (click)="deleteAccount()" type="submit">Delete</button></p>
+            </form>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,105 @@
+<div class="row">
+    <div class="col-lg-12" style="text-align:center;">
+        <h2>Community</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12" style="text-align:center;">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search Comment, Issue type, Name, Date" [(ngModel)]="searchComment">
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="col-lg-3" style="width: 300px;">
+            <select class="browser-default custom-select" style="width: 200px;">
+              <option selected>Category</option>
+              <option value="1 ">Technical Issues</option>
+              <option value="2 ">Computer component issues</option>
+              <option value="3 ">FAQs</option>
+              </select>
+            <div class="row">
+                <select class="browser-default custom-select" style="width: 200px; margin-left: 15px;">
+            <option selected>Date</option>
+            <option value="1 ">This week</option>
+            <option value="2 ">This month</option>
+            <option value="3 ">This year</option>
+          </select>
+            </div>
+            <div class="row">
+                <p>Add a new comment</p>
+                <form [formGroup]="myCommentForm" (ngSubmit)="onSubmit(myCommentForm)">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p><input formControlName="userName" id="userName" placeholder="User Name"></p>
+                                <p><input formControlName="commentName" id="commentName" placeholder="Comment"></p>
+                                <p><input formControlName="commentType" id="commentType" placeholder="Type"></p>
+                                <p><input formControlName="commentDate" id="commentDate" placeholder="Date"></p>
+                                <p><button class="btn btn-primary" type="submit">Add comment</button></p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-9" style="width: 800px;">
+            <ng-container *ngFor="let comment of comments | filter:searchComment">
+                <div class="card">
+                    <h2> Comment: {{comment.commentName}} </h2>
+                    <p> Issue type: {{comment.commentType}} </p>
+                    <p> Name: {{comment.userName}} </p>
+                    <p> Date: {{comment.commentDate}} </p>
+                    <p><button class="btn btn-primary" (click)="edit(content2, comment)" type="submit">Update</button></p>
+                    <p><button class="btn btn-primary" (click)="deleteComment(comment._id)" type="submit">Delete</button></p>
+                </div>
+                <br>
+            </ng-container>
+        </div>
+
+        <ng-template #content2 let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Comment Details</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+
+                <form [formGroup]="updateCommentDetails" (ngSubmit)="updateComment(updateCommentDetails)">
+
+                    <div class="form-group row">
+                        <label for="editCommentName" class="col-sm-4 col-form-label">Comment Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" formControlName="editCommentName" [(ngModel)]="modalContent.commentName" id="editCommentName">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="editCommentType" class="col-sm-4 col-form-label">Comment Type</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" formControlName="editCommentType" [(ngModel)]="modalContent.commentType" id="editCommentType">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="editUserName" class="col-sm-4 col-form-label">User Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" formControlName="editUserName" [(ngModel)]="modalContent.userName" id="editUserName">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="editCommentDate" class="col-sm-4 col-form-label">Comment Date</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" formControlName="editCommentDate" [(ngModel)]="modalContent.commentDate" id="editCommentDate">
+                        </div>
+                    </div>
+
+                    <p><button class="btn btn-primary" (click)="updateComment()" type="submit">Update</button></p>
+                </form>
+
+            </div>
+        </ng-template>
+    </div>

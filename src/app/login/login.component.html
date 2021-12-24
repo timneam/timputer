@@ -1,0 +1,13 @@
+<div class="container" style="width: 1000px; height: 400px; background-color: wheat; text-align: center;">
+    <br>
+    <div class="container" style="width: 700px; height:300px; text-align: center; background-color:white;">
+        <br>
+        <h2 style="text-align: center;">Login with your account!</h2>
+        <form [formGroup]="myForm" novalidate (ngSubmit)="onSubmit(myForm)">
+            <p><input formControlName="name" id="name" placeholder="Your name" /></p>
+            <p><input formControlName="password" id="password" type="password" placeholder="Your password" /></p>
+            <p><button class="btn btn-primary" type="submit">Login</button></p>
+        </form>
+        <p><a routerLink="/register" routerLinkActive="active">Register here!</a></p>
+    </div>
+</div>

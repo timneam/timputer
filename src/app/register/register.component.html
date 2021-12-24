@@ -1,0 +1,76 @@
+<div class="container" style="background-color:wheat; width: 1000px; height: 600px;">
+    <br>
+    <div class="container" style="text-align: center; background-color: white; width: 800px; height: 400px;">
+        <h2>
+            Register with us today!
+        </h2>
+        <br>
+        <form [formGroup]="myForm" novalidate (ngSubmit)="onSubmit(myForm)">
+
+            <div class="form group row">
+                <input class="form-control" formControlName="name" id="name" placeholder="Your name" />
+
+                <div *ngIf="myForm.controls['name'].invalid && (myForm.controls['name'].dirty || myForm.controls['name'].touched)" class="alert alert-danger">
+                    <div *ngIf="myForm.controls['name'].errors.required">
+                        Name is required.
+                    </div>
+                </div>
+
+                <br>
+
+                <input class="form-control" formControlName="password" type="password" id="password" placeholder="Your password" />
+
+                <div *ngIf="myForm.controls['password'].invalid && (myForm.controls['password'].dirty || myForm.controls['password'].touched)" class="alert alert-danger">
+                    <div *ngIf="myForm.controls['password'].errors.required">
+                        Password is required.
+                    </div>
+                </div>
+
+                <br>
+
+                <input class="form-control" formControlName="email" id="email" placeholder="Your Email" />
+
+                <div *ngIf="myForm.controls['email'].invalid && (myForm.controls['email'].dirty || myForm.controls['email'].touched)" class="alert alert-danger">
+                    <div *ngIf="myForm.controls['email'].errors.required">
+                        email is required.
+                    </div>
+                </div>
+
+                <br>
+
+                <input class="form-control" formControlName="contact" id="contact" placeholder="Your Contact Number" />
+
+                <div *ngIf="myForm.controls['contact'].invalid && (myForm.controls['contact'].dirty || myForm.controls['contact'].touched)" class="alert alert-danger">
+                    <div *ngIf="myForm.controls['contact'].errors.required">
+                        Contact is required.
+                    </div>
+                </div>
+
+                <br>
+
+                <input class="form-control" formControlName="houseAddress" id="houseAddress" placeholder="Your House Address" />
+
+                <div *ngIf="myForm.controls['houseAddress'].invalid && (myForm.controls['houseAddress'].dirty || myForm.controls['houseAddress'].touched)" class="alert alert-danger">
+                    <div *ngIf="myForm.controls['houseAddress'].errors.required">
+                        House Address is required.
+                    </div>
+                </div>
+
+                <br>
+
+                <input class="form-control" formControlName="role" id="role" placeholder="user/admin" />
+
+                <div *ngIf="myForm.controls['role'].invalid && (myForm.controls['role'].dirty || myForm.controls['role'].touched)" class="alert alert-danger">
+                    <div *ngIf="myForm.controls['role'].errors.required">
+                        Role is required.
+                    </div>
+                </div>
+
+                <br>
+
+                <p><button class="btn btn-primary" type="submit">Register</button></p>
+            </div>
+
+        </form>
+    </div>
+</div>

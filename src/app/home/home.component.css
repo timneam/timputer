@@ -1,0 +1,29 @@
+.col-lg-3 {
+    width: 350px;
+}
+
+.cardList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+
+/* Column Gap */
+
+.cardList>* {
+    box-sizing: border-box;
+}
+
+.cardList>*:not(:last-child) {
+    margin-right: 32px;
+}
+
+
+/* Item sizing */
+
+.cardListItem {
+    flex: 0 1 calc(33.3% - 32px);
+}

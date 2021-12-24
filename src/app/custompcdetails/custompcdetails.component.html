@@ -1,0 +1,111 @@
+<div class="row">
+    <div class="col-lg-12" style="text-align:center;">
+        <h2>Details of PC</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3" style="width: 600px;">
+        <img style="width: 100px; height: 100px; margin: auto;" src="../../assets/default_pc_icon.png" />
+    </div>
+    <div class="col-lg-9" style="width: 300px;">
+        <div *ngFor="let pc of pcs" style="text-align: center;">
+            <p>Name: {{pc.customPcName}}</p>
+            <p>Price: {{pc.customPcPrice}}</p>
+            <p>Type: {{pc.customPcType}}</p>
+
+            <p>CPU:
+                <select class="browser-default custom-select">
+                <option selected>{{pc.customPcCpu}}</option>
+                <option value="1">CPU</option>
+                <option value="2">CPU</option>
+                <option value="3">CPU</option>
+                <option value="4">CPU</option>
+                <option value="5">CPU</option>
+                <option value="6">CPU</option>
+                <option value="7">CPU</option>
+              </select>
+            </p>
+
+            <p>RAM:
+                <select class="browser-default custom-select">
+                <option selected>{{pc.customPcRam}}</option>
+                <option value="1">RAM</option>
+                <option value="2">RAM</option>
+                <option value="3">RAM</option>
+                <option value="4">RAM</option>
+                <option value="5">RAM</option>
+                <option value="6">RAM</option>
+                <option value="7">RAM</option>
+              </select>
+            </p>
+
+
+            <p>Power Supply:
+                <select class="browser-default custom-select">
+                <option selected>{{pc.customPcPsu}}</option>
+                <option value="1">Power Supply</option>
+                <option value="2">Power Supply</option>
+                <option value="3">Power Supply</option>
+                <option value="4">Power Supply</option>
+                <option value="5">Power Supply</option>
+                <option value="6">Power Supply</option>
+                <option value="7">Power Supply</option>
+              </select>
+            </p>
+
+
+            <p>Graphic Card:
+                <select class="browser-default custom-select">
+                <option selected>{{pc.customPcGpu}}</option>
+                <option value="1">Graphic Card</option>
+                <option value="2">Graphic Card </option>
+                <option value="3">Graphic Card </option>
+                <option value="4">Graphic Card </option>
+                <option value="5">Graphic Card </option>
+                <option value="6">Graphic Card </option>
+                <option value="7">Graphic Card </option>
+              </select>
+            </p>
+
+            <p>SSD:
+                <select class="browser-default custom-select">
+                <option selected>{{pc.customPcSsd}}</option>
+                <option value="1">SSD</option>
+                <option value="2">SSD</option>
+                <option value="3">SSD</option>
+                <option value="4">SSD</option>
+                <option value="5">SSD</option>
+                <option value="6">SSD</option>
+                <option value="7">SSD</option>
+              </select>
+            </p>
+
+            <p>HDD:
+                <select class="browser-default custom-select">
+                <option selected>{{pc.customPcHdd}}</option>
+                <option value="1">HDD</option>
+                <option value="2">HDD</option>
+                <option value="3">HDD</option>
+                <option value="4">HDD</option>
+                <option value="5">HDD</option>
+                <option value="6">HDD</option>
+                <option value="7">HDD</option>
+              </select>
+            </p>
+
+            <p>Case:
+                <select class="browser-default custom-select">
+                <option selected>{{pc.customPcCase}}</option>
+                <option value="1">Case</option>
+                <option value="2">Case</option>
+                <option value="3">Case</option>
+                <option value="4">Case</option>
+                <option value="5">Case</option>
+                <option value="6">Case</option>
+                <option value="7">Case</option>
+              </select>
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+<div class="row">
+    <div class="col-lg-12" style="text-align:center;">
+        <h2>Custom PCs</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-9" style="text-align:center;">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search Custom PC Type" [(ngModel)]="searchCustomPC">
+        </div>
+    </div>
+
+    <div class="col-lg-3" style="width: 300px;">
+        <select class="browser-default custom-select" style="width: 200px;">
+                  <option selected>Category</option>
+                  <option value="1">Gaming</option>
+                  <option value="2">Video Editing</option>
+                  <option value="3">Office work</option>
+                  </select>
+    </div>
+
+    <div class="cardList" *ngFor="let custompc of custompcs | filter:searchCustomPC" style="text-align: center;">
+        <ng-container>
+            <div class="card" style="width: 300px; height: 900px;">
+                <img style="width: 100px; height: 100px; margin: auto;" src="../../assets/default_pc_icon.png" />
+                <h2> Name: {{custompc.customPcName}}</h2>
+                <p>Price: ${{custompc.customPcPrice}}</p>
+                <p>Type: {{custompc.customPcType}}</p>
+                <p>CPU: {{custompc.customPcCpu}}</p>
+                <p>RAM: {{custompc.customPcRam}}</p>
+                <p>PSU: {{custompc.customPcPsu}}</p>
+                <p>GPU: {{custompc.customPcGpu}}</p>
+                <p>SSD: {{custompc.customPcSsd}}</p>
+                <p>HDD: {{custompc.customPcHdd}}</p>
+                <p>CASE: {{custompc.customPcCase}}</p>
+                <p>
+                    <button class="btn btn-outline-primary mb-2 mr-2" [routerLink]="['/custompcdetails', custompc._id]">Customise</button></p>
+            </div>
+        </ng-container>
+    </div>
+
+
+
+    <ng-template #content2 let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Custom PC Details</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+            <form [formGroup]="updateCustomPcDetails" (ngSubmit)="updateCustomPc(updateCustomPcDetails)">
+                <img style="width: 100px; height: 100px; margin: auto;" src="../../assets/default_pc_icon.png" />
+                <div class="form-group row">
+                    <label for="editCustomPcName" class="col-sm-4 col-form-label">Custom PC Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" formControlName="editCustomPcName" [(ngModel)]="modalContent.customPcName" id="editCustomPcName">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="editCustomPcPrice" class="col-sm-4 col-form-label">Custom PC Price</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" formControlName="editCustomPcPrice" [(ngModel)]="modalContent.customPcPrice" id="editCustomPcPrice">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="editCustomPcType" class="col-sm-4 col-form-label">Custom PC Type</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" formControlName="editCustomPcType" [(ngModel)]="modalContent.customPcType" id="editCustomPcType">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="editCustomPcCpu" class="col-sm-4 col-form-label">Custom PC CPU</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" formControlName="editCustomPcCpu" [(ngModel)]="modalContent.customPcCpu" id="editCustomPcCpu">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="editCustomPcRam" class="col-sm-4 col-form-label">Custom PC RAM</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" formControlName="editCustomPcRam" [(ngModel)]="modalContent.customPcRam" id="editCustomPcRam">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="editCustomPcPsu" class="col-sm-4 col-form-label">Custom PC PSU</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" formControlName="editCustomPcPsu" [(ngModel)]="modalContent.customPcPsu" id="editCustomPcPsu">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="editCustomPcGpu" class="col-sm-4 col-form-label">Custom PC GPU</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" formControlName="editCustomPcGpu" [(ngModel)]="modalContent.customPcGpu" id="editCustomPcGpu">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="editCustomPcSsd" class="col-sm-4 col-form-label">Custom PC SSD</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" formControlName="editCustomPcSsd" [(ngModel)]="modalContent.customPcSsd" id="editCustomPcSsd">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="editCustomPcHdd" class="col-sm-4 col-form-label">Custom PC HDD</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" formControlName="editCustomPcHdd" [(ngModel)]="modalContent.customPcHdd" id="editCustomPcHdd">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="editCustomPcCase" class="col-sm-4 col-form-label">Custom PC Case</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" formControlName="editCustomPcCase" [(ngModel)]="modalContent.customPcCase" id="editCustomPcCase">
+                    </div>
+                </div>
+
+                <p><button class="btn btn-primary" (click)="updateCustomPc()" type="submit">Update</button></p>
+            </form>
+
+        </div>
+    </ng-template>
+
+
+</div>
